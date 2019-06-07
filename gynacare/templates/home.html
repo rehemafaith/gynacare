@@ -1,0 +1,259 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+
+<html lang="en" class="full-height">
+
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'facts' %}">Facts Page</a>
+        </li>
+        {%if user.is_authenticated  %}
+        <li class="nav-item">
+          <a href="/accounts/password/change" class="nav-link">Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" class="nav-link" href="/logout">Logout</a>
+        </li>
+        {% else %}
+        <li>
+              <a class='btn btn-default'class="nav-link" href="/accounts/login">Login</a>
+            </li>
+
+            {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  <div class="view intro-2">
+    <div class="full-bg-img">
+      <div class="mask rgba-purple-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+          <h1>Welcome to GynaCare</h1>
+          <br>
+          <h3>GynaCare gives you the oportunity to share your story and hear from a professional.Get your answers today!</h3>
+          
+          <br>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+<!--Main Navigation-->
+
+<!--Main Layout-->
+<main class="text-center py-5">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+<!-- Material form contact -->
+<div class="card">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Contact us</strong>
+    </h5>
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+       
+            <form action="{% url 'home' %}" class="text-center" style="color: #757575;" method="POST">
+                {%csrf_token%}
+                {% bootstrap_form form %}
+                <button class="btn btn-info-lg" type="submit" value="Post">Submit</button>
+                
+              </form>
+            
+      
+
+    </div>
+
+</div>
+</div>
+<div class="col-md-6">
+<!-- Material form contact -->
+        
+        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+          enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+          mollit anim id est laborum.</p>
+
+      </div>
+    </div>
+  </div>
+  <hr>
+ 
+
+<section id="stories">
+  <div id="heading">
+    <h3 class="text-center">OUR STORIES</h3>
+  </div>
+  <div class="container text-center card" >
+    <p class="card">
+        {% for share in share %}
+        <div class="chip blue lighten-4">
+            <p>
+            ID:{{share.myid}}
+              </p>
+            </div>
+    
+        <h6>{{share.story}}</h6>
+        <hr>
+        <!-- Comment input -->
+        <div class="md-form">
+          
+          <input placeholder="Add Comment..." type="text" id="form5" class="form-control">
+        </div>
+        {% endfor %}
+       
+    </p>
+    
+  </div>
+
+</section>
+     
+      
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/5cf917e4267b2e57853128fd/default';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+   
+
+
+</main>
+<!--Main Layout-->
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!--Grid row-->
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+
+        <!-- Form -->
+        <form class="form-inline">
+          <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+            aria-label="Search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
+        <!-- Form -->
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+
+        <form class="input-group">
+          <input type="text" class="form-control form-control-sm" placeholder="Your email"
+            aria-label="Your email" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-sm btn-outline-white my-0" type="button">Sign up</button>
+          </div>
+        </form>
+
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> FefeGynaCare</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<style>
+.view {
+    background: url("https://cdn140.picsart.com/285290055030201.gif")no-repeat center center;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #BEE6CE;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color:#BEE6CE;
+    }
+}
+
+html,
+body,
+header,
+.view {
+  height: 100%;
+}
+
+
+ 
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://www.mcnt.com/images/specialties/feature-obgyn.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+
+
+}
+
+#stories{
+  background-image: url('');
+  height: 100%;
+
+
+}
+</style>
+{% endblock %}

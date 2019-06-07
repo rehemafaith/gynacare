@@ -1,0 +1,179 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'facts'%}">Facts Page</a>
+  </li>
+  
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'home'%}">Home</a>
+  </li>
+  
+</ul>
+<body>
+
+  <div class="header">
+    <h1>Get Your Facts</h1>
+    
+  </div>
+  
+  
+  
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>Menstruation and Menopause</h2>
+        <h5>Aging gracefully?</h5>
+        <div class="fakeimg" style="height:150px; width:200px; background-image: url('data:image/jpeg;base64,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'); background-repeat: no-repeat;"></div>
+        <p>The menstrual cycle is the process by which a woman's body gets ready for the chance of a pregnancy each month. The average menstrual cycle is 28 days from the start of one to the start of the next, but it can range from 21 days to 35 days.</p>
+        <p>Most menstrual periods last from three to five days. In the United States, most girls start menstruating at age 12, but girls can start menstruating between the ages of 8 and 16.</p>
+        <p>Menopause is defined as the absence of menstrual periods for 12 months. It is the time in a woman's life when the function of the ovaries ceases.</p>
+        <p>The process of menopause does not occur overnight, but rather is a gradual process. This so-called perimenopausal transition period is a different experience for each woman</p>
+        <p>The average age of menopause is 51 years old, but menopause may occur as early as the 30s or as late as the 60s. There is no reliable lab test to predict when a woman will experience menopause.</p>
+        <p>The age at which a woman starts having menstrual periods is not related to the age of menopause onset.
+          Symptoms of menopause can include abnormal vaginal bleeding, hot flashes, vaginal and urinary symptoms, and mood changes.
+          Complications that women may develop after menopause include osteoporosis and heart disease.
+          Treatments for menopause are customized for each woman.
+          </p>
+      </div>
+      <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>About Me</h2>
+        <div class="fakeimg" style="height:100px;">Image</div>
+        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      </div>
+      <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg"><p>Image</p></div>
+        <div class="fakeimg"><p>Image</p></div>
+        <div class="fakeimg"><p>Image</p></div>
+      </div>
+      <div class="card">
+        <h3>Follow Me</h3>
+        <p>Some text..</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <h2>Footer</h2>
+  </div>
+  
+  </body>
+  </html>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    padding: 10px;
+    background: #f1f1f1;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+  }
+  
+  .header h1 {
+    font-size: 50px;
+  }
+  
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  /* Style the topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 75%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+ 
+  </style>
+{% endblock %}
